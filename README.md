@@ -1,10 +1,17 @@
-# keycloak-oidc-example
+# Keycloak OpenId Connect Example
 Simple Example for OpenId Connect using Keycloak, Spring Boot (Security) &amp; Angular
 
-
 ## Keycloak
-https://hub.docker.com/r/jboss/keycloak
+In this example we're using Keycloak as an IDP.
+[How to set up Keycloak](keycloak/README.md)
+Docker images can be found here: [Keycloak Docker Images](https://hub.docker.com/r/jboss/keycloak)
 
-`docker run -it --rm -e KEYCLOAK_USER=<USERNAME> -e KEYCLOAK_PASSWORD=<PASSWORD> -p 8080:8080 jboss/keycloak:8.0.2`
+## Angular Frontend
+Our frontend is a simple web application based on Angular. The frontend consists of three pages `public`, `user` and `admin`.
+We want to make sure that an user has to login when entering the app. Furthermore, we want that users only have access to page when they have the corresponding permissions (`roles`).
+[Integrating Keycloak in an Angular Frontend](frontend-angular/README.md)
 
-docker run -it --rm -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -e KEYCLOAK_IMPORT=/tmp/my-realm.json -p 8080:8080 jboss/keycloak:8.0.2
+## Spring Boot 2 Backend
+We're building up a Spring Boot 2 application as a resource server. This resource server has got two different endpoints that can only be accessed when the correct permissions (`roles`) are included in the jwt.
+[Integrating Keycloak in Spring Boot Backend](backend-springboot/README.md)
+
