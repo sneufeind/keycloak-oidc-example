@@ -1,0 +1,6 @@
+<p>Authorized User with role '{{ desiredRole }}'</p>
+<p>{{ name$ | async }}</p>
+<p>{{ response$ | async }}</p>
+<button mat-button (click)="callUserEndpoint()">Call User Endpoint</button>
+<button mat-button (click)="callAdminEndpoint()">Call Admin Endpoint</button>
+<button mat-button (click)="navigateToPublic()">Back</button>

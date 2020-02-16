@@ -1,0 +1,37 @@
+spring:
+  port: 8080
+  main:
+    allow-bean-definition-overriding: true
+
+management:
+  server:
+    port: 9000
+
+example:
+  cors:
+    allowed-origins: http://localhost:4200, http://localhost:8080
+    max-age: 3000
+  roles:
+    admin: example-admin
+    user: example-user
+
+keycloak:
+  auth-server-url: ${IDP_URL}/auth
+  realm: example
+  resource: example-backend
+#  credentials:
+#    secret: ba7b1821-f2c6-4154-98d8-00e35bf4a54f
+  bearer-only: true
+#  cors: true
+  principal-attribute: preferred_username
+#  security-constraints:
+#    - authRoles: [example-user, example-admin]
+#      securityCollections:
+#        - name: user resources
+#          description: User Data API
+#          patterns: ['/api/greet/user*']
+#    - authRoles: [example-admin]
+#      securityCollections:
+#        - name: admin resources
+#          description: Admin Data API
+#          patterns: ['/api/greet/admin*']
